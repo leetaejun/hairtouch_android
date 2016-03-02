@@ -96,29 +96,29 @@
                     </RelativeLayout>
                 </RelativeLayout>
 
-                <!-- FULL NAME -->
+                <!-- NICK NAME -->
                 <RelativeLayout
-                    android:id="@+id/activity_sign_up_fullname_rl"
+                    android:id="@+id/activity_sign_up_nickname_rl"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_below="@+id/activity_sign_up_password_rl">
                     <RelativeLayout
-                        android:id="@+id/activity_sign_up_fullname_text_rl"
+                        android:id="@+id/activity_sign_up_nickname_text_rl"
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:gravity="center">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="FULL NAME"/>
+                            android:text="NICK NAME"/>
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_toRightOf="@id/activity_sign_up_fullname_text_rl"
+                        android:layout_toRightOf="@id/activity_sign_up_nickname_text_rl"
                         android:gravity="center">
                         <EditText
-                            android:id="@+id/activity_sign_up_fullname_et"
+                            android:id="@+id/activity_sign_up_nickname_et"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="textEmailSubject"
@@ -163,7 +163,7 @@
                     android:id="@+id/activity_sign_up_sign_up_rl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/activity_sign_up_fullname_rl"
+                    android:layout_below="@+id/activity_sign_up_nickname_rl"
                     android:layout_marginBottom="8dp"
                     android:gravity="center">
                     <Button
