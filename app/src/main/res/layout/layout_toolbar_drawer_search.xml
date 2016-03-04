@@ -32,7 +32,7 @@
                 android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:text="우아한 프리젠테이션" />
+                android:text="헤어터치" />
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/layout_toolbar_drawer_search_search_rl"

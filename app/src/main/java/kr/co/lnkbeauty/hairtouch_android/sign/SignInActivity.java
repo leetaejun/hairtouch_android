@@ -3,10 +3,7 @@ package kr.co.lnkbeauty.hairtouch_android.sign;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Patterns;
@@ -25,7 +22,6 @@ import kr.co.lnkbeauty.hairtouch_android.model.AuthenticationModel;
 import kr.co.lnkbeauty.hairtouch_android.network.APIRequest;
 import kr.co.lnkbeauty.hairtouch_android.network.APIService;
 import kr.co.lnkbeauty.hairtouch_android.util.PreferencesManager;
-import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Response;
 import retrofit.Retrofit;
@@ -153,14 +149,14 @@ public class SignInActivity extends AppCompatActivity {
         progressDialog.show();
 
         APIService service = APIRequest.getInstacne().getService();
-        service.signinUser(emailEditText.getText().toString(), passwordEditText.getText().toString()).enqueue(new Callback<AuthenticationModel>() {
+        service.signinDesigner(emailEditText.getText().toString(), passwordEditText.getText().toString()).enqueue(new Callback<AuthenticationModel>() {
             @Override
             public void onResponse(Response<AuthenticationModel> response, Retrofit retrofit) {
                 if (response.body() != null) {
                     AuthenticationModel authenticationModel = response.body();
 
                     PreferencesManager.getInstance().setAccessToken(authenticationModel.getAccess_token());
-                    PreferencesManager.getInstance().setUser(authenticationModel.getUser());
+                    PreferencesManager.getInstance().setDesigner(authenticationModel.getDesigner());
 
 
                     messageDialog = new HTMessageDialog(SignInActivity.this, "SIGN IN", "로그인에 성공하였습니다!", new View.OnClickListener() {

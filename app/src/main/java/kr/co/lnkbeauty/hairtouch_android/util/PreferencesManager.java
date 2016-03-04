@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.List;
-
-import kr.co.lnkbeauty.hairtouch_android.model.UserModel;
+import kr.co.lnkbeauty.hairtouch_android.model.DesignerModel;
 
 /**
  * Created by leetaejun on 2016. 2. 14..
@@ -21,7 +17,7 @@ public class PreferencesManager {
 
     // PROPERTY
     private static final String KEY_ACCESSTOKEN = "kr.co.lnkbeauty.hairtouch_android.KEY_ACCESSTOKEN";
-    private static final String KEY_USER = "kr.co.lnkbeauty.hairtouch_android.KEY_USER";
+    private static final String KEY_DESIGNER = "kr.co.lnkbeauty.hairtouch_android.KEY_DESIGNER";
 
     // VAR
     private static PreferencesManager sInstance;
@@ -55,19 +51,19 @@ public class PreferencesManager {
         return mPref.getString(KEY_ACCESSTOKEN, null);
     }
 
-    public void setUser(UserModel user) {
+    public void setDesigner(DesignerModel designer) {
         Gson gson = new Gson();
-        String userString = gson.toJson(user);
+        String designerString = gson.toJson(designer);
         mPref.edit()
-                .putString(KEY_USER, userString)
+                .putString(KEY_DESIGNER, designerString)
                 .commit();
     }
 
-    public UserModel getUser() {
+    public DesignerModel getDesigner() {
         Gson gson = new Gson();
-        String userString = mPref.getString(KEY_USER, null);
-        if (userString != null) {
-            return gson.fromJson(userString, UserModel.class);
+        String deisngerString = mPref.getString(KEY_DESIGNER, null);
+        if (deisngerString != null) {
+            return gson.fromJson(deisngerString, DesignerModel.class);
         } else {
             return null;
         }

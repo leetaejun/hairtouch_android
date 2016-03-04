@@ -7,13 +7,13 @@ import java.io.Serializable;
  */
 public class AuthenticationModel implements Serializable {
     private String access_token;
-    private UserModel user;
+    private DesignerModel designer;
 
     public String getAccess_token() {
         return access_token;
     }
 
-    public UserModel getUser() {
-        return user;
+    public DesignerModel getDesigner() {
+        return designer;
     }
 }
