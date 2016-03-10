@@ -9,6 +9,9 @@ public class APIConstant {
     // API 요청 주소
     public static final String URI_REQUEST_API = "http://192.168.1.151:3000/api/";
 
+    // 공통코드 요청하기
+    public static final String URI_COMMON_CODES = "common_codes.json";
+
     // Designer 정보 요청하기
     public static final String URI_DESIGNER_INFO = "designers.json";
     // Designer 정보 수정하기

@@ -4,7 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.List;
+
+import kr.co.lnkbeauty.hairtouch_android.model.CommonCodeModel;
 import kr.co.lnkbeauty.hairtouch_android.model.DesignerModel;
 
 /**
@@ -16,6 +21,7 @@ public class PreferencesManager {
     private static final String PREF_NAME = "kr.co.lnkbeauty.hairtouch_android.SHAREDPREFERENCES";
 
     // PROPERTY
+    private static final String KEY_COMMON_CODES = "kr.co.lnkbeauty.hairtouch_android.KEY_COMMON_CODES";
     private static final String KEY_ACCESSTOKEN = "kr.co.lnkbeauty.hairtouch_android.KEY_ACCESSTOKEN";
     private static final String KEY_DESIGNER = "kr.co.lnkbeauty.hairtouch_android.KEY_DESIGNER";
 
@@ -39,6 +45,26 @@ public class PreferencesManager {
                     " is not initialized, call initializeInstance(..) method first.");
         }
         return sInstance;
+    }
+
+    public void setCommonCodes(List<CommonCodeModel> commonCodes) {
+        Gson gson = new Gson();
+        String commonCodesString = gson.toJson(commonCodes);
+        mPref.edit()
+                .putString(KEY_COMMON_CODES, commonCodesString)
+                .commit();
+    }
+
+    public List<CommonCodeModel> getCommonCodes() {
+        Gson gson = new Gson();
+        String commonCodesString = mPref.getString(KEY_COMMON_CODES, null);
+        Type type = new TypeToken<List<CommonCodeModel>>() {}.getType();
+
+        if (commonCodesString != null) {
+            return gson.fromJson(commonCodesString, type);
+        } else {
+            return null;
+        }
     }
 
     public void setAccessToken(String accessToken) {

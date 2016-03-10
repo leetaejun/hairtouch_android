@@ -1,6 +1,9 @@
 package kr.co.lnkbeauty.hairtouch_android.network;
 
+import java.util.List;
+
 import kr.co.lnkbeauty.hairtouch_android.model.AuthenticationModel;
+import kr.co.lnkbeauty.hairtouch_android.model.CommonCodeModel;
 import kr.co.lnkbeauty.hairtouch_android.model.DesignerModel;
 import retrofit.Call;
 import retrofit.http.Body;
@@ -14,6 +17,9 @@ import retrofit.http.Query;
  * Created by leetaejun on 2016. 3. 2..
  */
 public interface APIService {
+
+    @GET(APIConstant.URI_COMMON_CODES)
+    Call<List<CommonCodeModel>> loadCommonCodes();
 
     @GET(APIConstant.URI_DESIGNER_INFO)
     Call<DesignerModel> loadDesignerInfo(@Query("access_token") String access_token);
